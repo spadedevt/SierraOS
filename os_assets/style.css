@@ -1,0 +1,422 @@
+/* ================= BODY & OVERLAY ================= */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: linear-gradient(180deg, #0b1c2c, #164032);
+    overflow-x: hidden;
+}
+
+
+
+/* Fade overlay */
+.fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0b1c2c;
+    opacity: 1;
+    z-index: 100;
+    animation: fadeOut 1.75s ease forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: -80px;
+    opacity: 0;
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(53, 108, 139, 0.05);
+    backdrop-filter: blur(10px);
+    transition: all 0.6s ease;
+    z-index: 50;
+    animation: slideDownFade 1.2s ease forwards;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+}
+
+@keyframes slideDownFade {
+    0% { opacity: 0; transform: translateY(-40px); top: -80px; }
+    100% { opacity: 1; transform: translateY(0); top: 0; }
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* ================= NAV LINK HOVER ================= */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #274434;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #094d0f;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #82b398;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    /* background: #28573f; */
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #26313333, #6f9397ef);
+    border: 1px solid rgba(0, 212, 95, 0.233);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(5, 177, 120, 0.281);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #285345e5, #00bcd426);
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(2, 146, 79, 0.6);
+  border-color: rgba(0, 212, 141, 0.356);
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    background: url(https://imgcdn.stablediffusionweb.com/2024/11/18/87534613-923e-46d6-b2ca-616801494232.jpg) center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;       /* Fix text width */
+    line-height: 1.6;       /* Easier reading */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+}
+
+.hero-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #112b1f, #c2ccc7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+     font-family: inherit;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: transparent;
+  background: linear-gradient(90deg, #9cc9d1b9, #fbfffdda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0.9;
+  letter-spacing: 1px;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= FEATURES SECTION ================= */
+.feature {
+  background: rgba(195, 235, 219, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 850px;
+  text-align: left;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.feature h3 {
+  color: #9cf3c6c2;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.feature ul {
+  list-style-type: none;
+  padding-left: 40
+  px;
+  padding-right: 25px;
+  padding-bottom: 20px;
+  margin: 10px 0 20px 0;
+}
+
+.feature ul li {
+
+  padding: 5px 0;
+  font-size: 2.05em;
+}
+
+.feature ul li strong{
+    color: #4fa87ac2;
+
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(100, 255, 180, 0.2);
+}
+
+/* Highlight letters for RIDGE */
+.acrostic {
+  color: #4fa87ac2;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+
+/* ================= TEAM MEMBERS ================= */
+.team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.member {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 20px;
+    width: 180px;
+    transition: transform 0.4s, opacity 0.4s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.member.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.member img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ================= ABOUT US DESC ================= */
+.about-desc {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  font-size: 1.1em;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* About Card */
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 850px;
+  margin: 40px auto;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  text-align: left;
+}
+
+/* Button to toggle */
+.about-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #244d3433, #39534bef);
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.about-btn:hover {
+  background: linear-gradient(135deg, #285345e5, #00bcd426);
+  transform: scale(1.02);
+}
+
+/* Hidden content */
+.about-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: all 0.6s ease;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.about-content p, .about-content h3 {
+  margin: 15px 0;
+  line-height: 1.7;
+}
+
+.about-card.open .about-content {
+  max-height: 1500px; /* enough to fit content */
+  opacity: 1;
+  padding: 20px;
+}
+
+
+/* ================= MEMBER HOVER EFFECT ================= */
+.member {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0 20px rgba(122, 255, 174, 0.3);
+}
+
+.member img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.member:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.15);
+}
+
+.member h3 {
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.member:hover h3 {
+    color: #4ef09d; 
+}
+
+
+/* ================= LEARN MORE CONTAINER ================= */
+.learn-container {
+  background: #19352c; /* darker box */
+  border-radius: 25px;
+  padding: 40px;
+  margin-top: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  line-height: 1.8;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Make headings stand out */
+.learn-container h3 {
+  color: #508f75;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.osVideo {
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+/* List style */
+.learn-container ul {
+  list-style: disc;
+  margin-left: 25px;
+}
+
+/* Hover subtle float */
+.learn-container:hover {
+  transform: translateY(-5px);
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.4);
+}
